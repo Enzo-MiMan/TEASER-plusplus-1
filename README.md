@@ -5,7 +5,7 @@
     sudo make install
     cd .. && cd examples/teaser_cpp_ply && mkdir build && cd build
     cmake .. && make
-    ./teaser_cpp_ply
+    OMP_NUM_THREADS=9 ./teaser_cpp_ply
 
 
 
