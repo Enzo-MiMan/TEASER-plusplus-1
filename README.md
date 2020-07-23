@@ -1,11 +1,11 @@
 ### c++
 
-  cd TEASER-plusplus && mkdir build && cd build
-  cmake .. && make
-  sudo make install
-  cd .. && cd examples/teaser_cpp_ply && mkdir build && cd build
-  cmake .. && make
-  ./teaser_cpp_ply
+    cd TEASER-plusplus && mkdir build && cd build
+    cmake .. && make
+    sudo make install
+    cd .. && cd examples/teaser_cpp_ply && mkdir build && cd build
+    cmake .. && make
+    ./teaser_cpp_ply
 
 
 
