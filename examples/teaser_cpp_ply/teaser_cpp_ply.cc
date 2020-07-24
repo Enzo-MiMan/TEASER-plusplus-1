@@ -1,10 +1,10 @@
 // An example showing TEASER++ registration with the Stanford bunny model
 #include <chrono>
 #include <iostream>
-#include <random>
+#include <fstream>
 
 #include <Eigen/Core>
-
+#include <fstream> 
 #include <teaser/ply_io.h>
 #include <teaser/registration.h>
 
@@ -20,16 +20,19 @@ inline double getAngularError(Eigen::Matrix3d R_exp, Eigen::Matrix3d R_est) {
 
 
 int main() {
+    
   // Load the .ply file
   teaser::PLYReader reader;
   teaser::PointCloud src_cloud;
-  auto status = reader.read("/Users/manmi/Desktop/mm/1574955838821870584.ply", src_cloud);
+  std::string src_path = "/Users/manmi/Desktop/mm/1574955838821870584.ply";
+  auto status = reader.read(src_path, src_cloud);
   int N = src_cloud.size();
   
-  teaser::PointCloud tgt_cloud;
-  reader.read("/Users/manmi/Desktop/mm/1574955838971913886.ply", tgt_cloud);
-  int M = tgt_cloud.size();
 
+  teaser::PointCloud tgt_cloud;
+  std::string tgt_path = "/Users/manmi/Desktop/mm/1574955838971913886.ply";
+  reader.read(tgt_path, tgt_cloud);
+  int M = tgt_cloud.size();
 
 
   // Convert the point cloud to Eigen
@@ -77,4 +80,5 @@ int main() {
   
   std::cout << "Estimated translation: " << std::endl;
   std::cout << solution.translation << std::endl;
+
 }
