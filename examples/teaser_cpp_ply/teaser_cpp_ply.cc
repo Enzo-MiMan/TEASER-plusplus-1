@@ -71,9 +71,9 @@ int main() {
 
       // Solve with TEASER++
       teaser::RobustRegistrationSolver solver(params);
-      std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
+      //std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
       solver.solve(src, tgt);
-      std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
+      //std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
 
       auto solution = solver.getSolution();
 
@@ -82,10 +82,20 @@ int main() {
       // std::cout << "          TEASER++ Results           " << std::endl;
       // std::cout << "=====================================" << std::endl;
       
+      // std::cout << "Estimated rotation: " << std::endl;
+      // std::cout << solution.rotation << std::endl;
+      // std::cout << "Estimated translation: " << std::endl;
+      // std::cout << solution.translation << std::endl;   
+
+
+
+      
+ 
       std::ofstream outfile;
       outfile.open("/Users/manmi/Documents/data/square_data/mm_data/mm_T_teaser.txt", std::ios::app);
       outfile << num[i] << " " << solution.translation(0) << " " << solution.translation(1) << " " << solution.translation(2) << std::endl;
       outfile.close();
+
 
           
       outfile.open("/Users/manmi/Documents/data/square_data/mm_data/mm_R_matrix_teaser.txt", std::ios::app);
